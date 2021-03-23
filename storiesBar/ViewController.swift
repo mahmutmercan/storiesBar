@@ -37,6 +37,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
@@ -61,7 +65,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? StoryCVC
         cell?.secondImageView.layer.borderWidth = 0
-        cell?.titleLabel.font
         cell?.titleLabel.textColor = .blue
         let vc = storyboard?.instantiateViewController(withIdentifier: "StoriesVC") as? StoriesVC
         vc?.name = models[indexPath.row].imageName

@@ -15,7 +15,11 @@ class StoriesVC: UIViewController {
         
         super.viewDidLoad()
         storiesImageView.image = UIImage(named: name)
+        
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goStoriesVC", sender: nil)
+    }
 }
